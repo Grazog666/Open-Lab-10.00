@@ -25,25 +25,25 @@ namespace Open_Lab_10._00
         private string author;
         private string category;
         private int releaseDate;
-        public void Title(string gettitle)
+        public void Title(string setTitle)
         {
-            title = gettitle;
+            title = setTitle;
         }
-        public void Pages(int getpages)
+        public void Pages(int setPages)
         {
-            pages = getpages;
+            pages = setPages;
         }
-        public void Author(string getauthor)
+        public void Author(string setAuthor)
         {
-            author = getauthor;
+            author = setAuthor;
         }
-        public void ReleaseDate(int getreleaseDate)
+        public void ReleaseDate(int setReleaseDate)
         {
-            releaseDate = getreleaseDate;
+            releaseDate = setReleaseDate;
         }
-        public void Category (string getcategory)
+        public void Category (string setCategory)
         {
-            category = getcategory;
+            category = setCategory;
         }
         public void Returner()
         {
