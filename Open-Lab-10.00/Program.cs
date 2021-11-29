@@ -8,13 +8,13 @@ namespace Open_Lab_10._00
         static void Main(string[] args)
         {
             Book LOTR = new Book();
-            LOTR.Author("Zbyszek");
-            LOTR.Category("Fantasy");
-            LOTR.ReleaseDate(2030);
-            LOTR.Title("´FrostAge");
-            LOTR.Pages(1200);
+           
+            LOTR._Pages = 304;
+            LOTR._Title = ("Lord of the rings");
+            LOTR._Author = ("Tolkien");
+            LOTR._Category = ("Fantasy");
+            LOTR._ReleaseDate = 2002;
             LOTR.Returner();
-
 
         }
     }
@@ -25,33 +25,68 @@ namespace Open_Lab_10._00
         private string author;
         private string category;
         private int releaseDate;
-        public void Title(string setTitle)
+
+        public int _Pages
         {
-            title = setTitle;
+           get { return pages; }
+            set 
+            { 
+                if (value > 0)
+                {
+                    pages = value;
+                }
+                else 
+                {
+                    pages = 1;
+                }
+            }
         }
-        public void Pages(int setPages)
+        public string _Title
         {
-            pages = setPages;
+            get { return title; }
+            set { title = value; }
         }
-        public void Author(string setAuthor)
+
+        public string _Author
         {
-            author = setAuthor;
+            get { return author; }
+            set { author =value ; }
         }
-        public void ReleaseDate(int setReleaseDate)
+
+        public string _Category
         {
-            releaseDate = setReleaseDate;
+            get { return category; }
+            set { category = value; }
         }
-        public void Category (string setCategory)
+
+        public int _ReleaseDate
         {
-            category = setCategory;
+            get { return releaseDate; }
+            set 
+            { 
+                if (value <= 2021 && value >= 1450 )
+                {
+                    releaseDate = value;
+                }
+                else 
+                {
+                    releaseDate = -1;
+                }
+            }
+            
         }
+
+
+
+
+
         public void Returner()
         {
-            Console.WriteLine(title);
-            Console.WriteLine(pages);
-            Console.WriteLine(author);
-            Console.WriteLine(releaseDate);
-            Console.WriteLine(category);
+            Console.WriteLine(_Title);
+            Console.WriteLine(_Pages);
+            Console.WriteLine(_Author);
+            Console.WriteLine(_ReleaseDate);
+            Console.WriteLine(_Category);
 
         }
     }
