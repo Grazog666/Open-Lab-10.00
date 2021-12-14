@@ -1,93 +1,94 @@
 ﻿using System;
-
-namespace Open_Lab_10._00
+namespace Open_Lab_10._03
 {
     class Program
-        
     {
         static void Main(string[] args)
         {
             Book LOTR = new Book();
-           
-            LOTR._Pages = 304;
-            LOTR._Title = ("Lord of the rings");
-            LOTR._Author = ("Tolkien");
-            LOTR._Category = ("Fantasy");
-            LOTR._ReleaseDate = 2002;
-            LOTR.Returner();
-
+            Book LOTR2 = new Book(999, "Lord of the rings 2");
+            Book LOTR3 = new Book(1000, "Lord of the rings 3", 1995, "Fantasy", "J. R. R. Tolkien");
+            Book HOBIT = new Book();
+            LOTR.Write();
+            LOTR2.Write();
+            LOTR3.Write();
+            HOBIT.Write();
         }
-    }
-    class Book
-    {
-        private string title;
-        private int pages;
-        private string author;
-        private string category;
-        private int releaseDate;
-
-        public int _Pages
+        public class Book
         {
-           get { return pages; }
-            set 
-            { 
-                if (value > 0)
+            public Book()
+            {
+                RelaseDate = -1;
+                Pages = -1;
+                Title = "-1";
+                Cathegory = "-1";
+                Author = "-1";
+            }
+
+            public Book(int pages, string title)
+            {
+                Pages = pages;
+                Title = title;
+                RelaseDate = -1;
+                Cathegory = "-1";
+                Author = "-1";
+            }
+
+            public Book(int pages, string title, int relaseDate, string cathegory, string author)
+            {
+                Pages = pages;
+                Title = title;
+                RelaseDate = relaseDate;
+                Cathegory = cathegory;
+                Author = author;
+            }
+
+
+            public string Title { get; set; }
+            private int pages;
+            public int Pages
+            {
+                get { return pages; }
+                set
                 {
-                    pages = value;
-                }
-                else 
-                {
-                    pages = 1;
+                    if (value < 0)
+                    {
+                        pages = 1;
+                    }
+                    else
+                    {
+                        pages = value;
+                    }
                 }
             }
-        }
-        public string _Title
-        {
-            get { return title; }
-            set { title = value; }
-        }
-
-        public string _Author
-        {
-            get { return author; }
-            set { author =value ; }
-        }
-
-        public string _Category
-        {
-            get { return category; }
-            set { category = value; }
-        }
-
-        public int _ReleaseDate
-        {
-            get { return releaseDate; }
-            set 
-            { 
-                if (value <= 2021 && value >= 1450 )
+            public string Cathegory { get; set; }
+            public string Author { get; set; }
+            private int relaseDate;
+            public int RelaseDate
+            {
+                get { return relaseDate; }
+                set
                 {
-                    releaseDate = value;
-                }
-                else 
-                {
-                    releaseDate = -1;
+                    if (value < 1450 || value > 2021)
+                    {
+                        relaseDate = -1;
+                    }
+                    else
+                    {
+                        relaseDate = value;
+                    }
                 }
             }
-            
-        }
 
+            public void Write()
+            {
+                Console.WriteLine("Názov: " + Title);
+                Console.WriteLine("Počet strán: " + Pages);
+                Console.WriteLine("Žáner: " + Cathegory);
+                Console.WriteLine("Autor: " + Author);
+                Console.WriteLine("Dátum vydania: " + RelaseDate);
 
-
-
-
-        public void Returner()
-        {
-            Console.WriteLine(_Title);
-            Console.WriteLine(_Pages);
-            Console.WriteLine(_Author);
-            Console.WriteLine(_ReleaseDate);
-            Console.WriteLine(_Category);
-
+            }
         }
     }
 }
