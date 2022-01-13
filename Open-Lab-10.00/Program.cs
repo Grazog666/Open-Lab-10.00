@@ -10,12 +10,20 @@ namespace Open_Lab_10._03
             Book LOTR3 = new Book(1000, "Lord of the rings 3", 1995, "Fantasy", "J. R. R. Tolkien");
             Book HOBIT = new Book();
             LOTR.Write();
+            Console.WriteLine();
             LOTR2.Write();
+            Console.WriteLine();
             LOTR3.Write();
+            Console.WriteLine();
             HOBIT.Write();
+            Console.WriteLine();
         }
-        public class Book
+         class Book
         {
+            /// <summary>
+            /// created categories of strings
+            /// </summary>
+         
             public Book()
             {
                 RelaseDate = -1;
@@ -61,7 +69,7 @@ namespace Open_Lab_10._03
                     }
                 }
             }
-            public string Cathegory { get; set; }
+            public string Cathegory { private get; set; }
             public string Author { get; set; }
             private int relaseDate;
             public int RelaseDate
